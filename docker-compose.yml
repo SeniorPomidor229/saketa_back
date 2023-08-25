@@ -1,0 +1,15 @@
+version: '3'
+services:
+  employee-directory:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: "mongodb://mongodb:27017"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
